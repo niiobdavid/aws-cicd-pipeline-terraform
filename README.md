@@ -1,6 +1,7 @@
 # NextWork CI/CD pipeline — Terraform
 
 Builds the whole "Build a CI/CD Pipeline with AWS" project in one go:
+Continued from the last [7 Day DevOps Challenge](https://github.com/niiobdavid/nextwork-web-project)
 
 GitHub → CodePipeline → CodeBuild (+ CodeArtifact) → S3 → CodeDeploy → EC2 web server
 
@@ -16,14 +17,10 @@ GitHub → CodePipeline → CodeBuild (+ CodeArtifact) → S3 → CodeDeploy →
 
 ## Before you start
 
-1. **Delete the resources you built by hand** (or they'll clash on names):
-   - CodePipeline, CodeDeploy app, CodeBuild project named `nextwork-devops-cicd`
-   - CodeArtifact repos and the `nextwork` domain
-   - The CloudFormation stack for the old web server (`nextwork-codedeploy-ec2-stack`)
-2. **Your GitHub repo must contain** (at the root): `buildspec.yml`, `appspec.yml`, `settings.xml`, `scripts/`, `pom.xml`, `src/`.
+1. **Your GitHub repo must contain** (at the root): `buildspec.yml`, `appspec.yml`, `settings.xml`, `scripts/`, `pom.xml`, `src/`.
    - The buildspec `artifacts:` section must include `appspec.yml` and `scripts/**/*`.
    - `settings.xml` must point at the URL shown in the `codeartifact_repository_url` output.
-3. AWS CLI configured (`aws sts get-caller-identity` works) and Terraform installed.
+2. AWS CLI configured (`aws sts get-caller-identity` works) and Terraform installed.
 
 ## Run it
 
